@@ -97,7 +97,7 @@ const splitGroup = (obj) => {
   return myArray;
 };
 
-// const result = loopGroupedItem(items);
-const data = splitGroup(reduceGroupedItem);
+
+const data = splitGroup(loopGroupedItem(items));
+// const data = splitGroup(reduceGroupedItem);
 console.log(data);
-// i have some confusion, since the initial value is an empty object {}, meaning acc={}, how come we are initializing an empty object into an empty array when we did this acc[category]=[]
