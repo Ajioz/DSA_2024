@@ -62,7 +62,7 @@ for (key in groupedItem) {
 }
 */
 
-const createArray = (objItems) => {
+const groupedItem = (objItems) => {
   let newCategery = [];  let myObject = {};
   for (let i = 0; i < objItems.length; i++) {
     const category = objItems[i].category;
@@ -77,6 +77,6 @@ const createArray = (objItems) => {
   return newCategery;
 };
 
-const result = createArray(items);
+const result = groupedItem(items);
 console.log(result);
 // i have some confusion, since the initial value is an empty object {}, meaning acc={}, how come we are initializing an empty object into an empty array when we did this acc[category]=[]
