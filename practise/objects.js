@@ -45,6 +45,18 @@ const items = [
     name: "Concumber",
     category: "Vegetable",
   },
+  {
+    name: "Milo",
+    category: "Beverage",
+  },
+  {
+    name: "Bread",
+    category: "Beverage",
+  },
+  {
+    name: "Soft Drink",
+    category: "Beverage",
+  },
 ];
 
 /*
@@ -71,20 +83,34 @@ for (key in groupedItem) {
 */
 
 const groupedItem = (objItems) => {
-  let newCategery = [];  let myObject = {};
+  // let newCategery = [];
+  let myObject = {};
   for (let i = 0; i < objItems.length; i++) {
     const category = objItems[i].category;
     if (!(category in myObject)) {
       myObject[category] = [];
     }
     myObject[category].push(objItems[i].name);
-    if (i === objItems.length - 1) {
-      newCategery.push(myObject);
-    }
+    // if (i === objItems.length - 1) {
+    //   newCategery.push(myObject);
+    // }
   }
-  return newCategery;
+  return myObject;
+};
+
+const splitGroup = (obj) => {
+  let myArray = [];
+  let myObject = {};
+  for (key in obj) {
+    let value = obj[key];
+    myObject.category = key;
+    myObject.item = value;
+    myArray.push(myObject);
+  }
+  return myArray
 };
 
 const result = groupedItem(items);
-console.log(result);
+const data = splitGroup(result);
+console.log(data);
 // i have some confusion, since the initial value is an empty object {}, meaning acc={}, how come we are initializing an empty object into an empty array when we did this acc[category]=[]
