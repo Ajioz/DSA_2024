@@ -37,6 +37,14 @@ const items = [
     name: "Lettuce",
     category: "Vegetable",
   },
+  {
+    name: "Mango",
+    category: "Fruit",
+  },
+  {
+    name: "Concumber",
+    category: "Vegetable",
+  },
 ];
 
 /*
