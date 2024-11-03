@@ -59,8 +59,8 @@ const items = [
   },
 ];
 
-/*
-const groupedItem = items.reduce((acc, item) => {
+
+const reduceGroupedItem = items.reduce((acc, item) => {
   const category = item.category;
   if (!acc[category]) {
     acc[category] = [];
@@ -69,21 +69,10 @@ const groupedItem = items.reduce((acc, item) => {
   return acc;
 }, {});
 
-console.log(groupedItem);
 
 
-let myObject = {}; let myArray = [];
-for (key in groupedItem) {
-  let value = groupedItem[key];
-  myObject.category = key;
-  myObject.item = value;
-  // myArray.push(myObject);
-  console.log(myObject);
-}
-*/
 
-const groupedItem = (objItems) => {
-  // let newCategery = [];
+const loopGroupedItem = (objItems) => {
   let myObject = {};
   for (let i = 0; i < objItems.length; i++) {
     const category = objItems[i].category;
@@ -91,26 +80,24 @@ const groupedItem = (objItems) => {
       myObject[category] = [];
     }
     myObject[category].push(objItems[i].name);
-    // if (i === objItems.length - 1) {
-    //   newCategery.push(myObject);
-    // }
   }
   return myObject;
 };
 
 const splitGroup = (obj) => {
   let myArray = [];
-  let myObject = {};
   for (key in obj) {
     let value = obj[key];
-    myObject.category = key;
-    myObject.item = value;
+    let myObject = {
+      category: key,
+      item: value,
+    };
     myArray.push(myObject);
   }
-  return myArray
+  return myArray;
 };
 
-const result = groupedItem(items);
-const data = splitGroup(result);
+// const result = loopGroupedItem(items);
+const data = splitGroup(reduceGroupedItem);
 console.log(data);
 // i have some confusion, since the initial value is an empty object {}, meaning acc={}, how come we are initializing an empty object into an empty array when we did this acc[category]=[]
