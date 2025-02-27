@@ -71,7 +71,6 @@ const reduceGroupedItem = items.reduce((acc, item) => {
 
 
 
-
 const loopGroupedItem = (objItems) => {
   let myObject = {};
   for (let i = 0; i < objItems.length; i++) {
